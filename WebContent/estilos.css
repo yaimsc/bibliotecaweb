@@ -1,0 +1,28 @@
+@CHARSET "ISO-8859-1";
+
+.container{
+	width : 100%; 
+}
+
+aside{
+	width : 20%; 
+	float: left;
+	margin-right: 2.5%; 
+	
+}
+
+.well{
+	width: 77.5%; 
+	float: left; 
+}
+
+#myCarousel{
+	width: 77.5%; 
+	heigt: 50%; 
+	float: left; 
+}
+
+#footer{
+	margin-top: 2.5%; 
+	width: 100%; 
+}
