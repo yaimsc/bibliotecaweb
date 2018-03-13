@@ -42,8 +42,8 @@ public class PrestamoModelo extends Conector{
 				prestamo.setId(rs.getInt("id"));
 				prestamo.setLibro(libroModelo.select(rs.getInt("id_libro"))); 
 				prestamo.setUsuario(usuarioModelo.select(rs.getInt("id_usuario")));
-				prestamo.setFechaPrestamo(rs.getDate("fecha_prestamo"));
-				prestamo.setFechaLimite(rs.getDate("fecha_limite"));
+				prestamo.setFechaPrestamo(rs.getDate("fecha_ini"));
+				prestamo.setFechaLimite(rs.getDate("fecha_fin"));
 				prestamo.setEntregado(rs.getBoolean("entregado"));
 				
 				prestamos.add(prestamo);

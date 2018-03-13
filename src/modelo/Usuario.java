@@ -10,7 +10,7 @@ public class Usuario {
 	private String apellido;
 	private int edad;
 	private String dni;
-	private Date fechaNacimiento;
+	private Date fecha_nacimiento;
 	
 	private ArrayList<Prestamo> prestamos;
 	
@@ -28,10 +28,10 @@ public class Usuario {
 		this.dni = dni;
 	}
 	public Date getFechaNacimiento() {
-		return fechaNacimiento;
+		return fecha_nacimiento;
 	}
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+	public void setFechaNacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 	//getters and setters
 	public int getId() {

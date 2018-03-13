@@ -43,11 +43,13 @@ Iterator<Libro> i = libros.iterator();
 while(i.hasNext()){
 	Libro libro = i.next();
 	
-	out.print("<tbody><tr><td>" + libro.getId() + " </td>" + "<td>" + libro.getTitulo() + "</td><td> " + libro.getAutor() + "</td></tr></tbody>"); 
+	out.print("<tbody><tr><td>" + libro.getId() + " </td>" + "<td>" + libro.getTitulo() + "</td><td> " + libro.getAutor() + "</td><td><a href = 'FichaLibros.jsp?id=" + libro.getId() + "'>Ver</a></td></tr></tbody>"); 
 	
 }
 %>
 
 </table>
+
+<a href = "añadirLibros.jsp">Añadir Libros</a>
 </body>
 </html>
