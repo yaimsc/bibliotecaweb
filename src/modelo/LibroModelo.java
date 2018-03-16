@@ -20,6 +20,7 @@ public class LibroModelo extends Conector {
 				libro.setId(rs.getInt("id"));
 				libro.setTitulo(rs.getString("titulo"));
 				libro.setAutor(rs.getString("autor"));
+				libro.setImagen("images/"+ rs.getString("imagen"));
 
 				libros.add(libro);
 			}
@@ -42,6 +43,7 @@ public class LibroModelo extends Conector {
 				libro.setId(rs.getInt("id"));
 				libro.setTitulo(rs.getString("titulo"));
 				libro.setAutor(rs.getString("autor"));
+				libro.setImagen("images/"+ rs.getString("imagen"));
 				return libro;
 			}
 
@@ -63,6 +65,7 @@ public class LibroModelo extends Conector {
 				libro.setId(rs.getInt("id"));
 				libro.setTitulo(rs.getString("titulo"));
 				libro.setAutor(rs.getString("autor"));
+				libro.setImagen("images/"+ rs.getString("imagen"));
 				return libro;
 			}
 

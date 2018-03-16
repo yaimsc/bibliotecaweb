@@ -28,25 +28,23 @@ aside{
 }
 
 #titulo{
-	float: left; 
-	width: 150px; 
-	heigth: 150px; 
-	margin-right: 40%; 
+	float: left;
 }
 
 #autor{
 	float: left; 
-	width: 150px; 
-	height: 150px; 
-	margin-right:40%; 
 }
 
 #imglib{
-	width: 30%;
-	heigth: 25%; 
+	
+	float: left;
+	height: 50%;
+	width: 30%; 
 }
 
 #descripcion{
-	width: 300px; 
-	margin-top: 30px; 
+	float:left; 
+	margin-top: 5%; 
+	margin-left: 1%;
+	margin-rigth: 5%; 
 }
