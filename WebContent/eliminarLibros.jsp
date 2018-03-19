@@ -69,6 +69,7 @@
 	libro.getTitulo(); 
 	libro.getAutor(); 
 	
+	//para que se redirige a esa pagina 
 	response.sendRedirect("listarlibros.jsp"); 
 	
 	

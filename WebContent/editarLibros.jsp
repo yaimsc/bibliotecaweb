@@ -50,65 +50,67 @@
 	</nav>
 	
 	<%
-	int id = Integer.parseInt(request.getParameter("id")); 
-	String titulo = request.getParameter("titulo");
-	String autor = request.getParameter("autor"); 
+	int id = Integer.parseInt(request.getParameter("id"));
+	LibroModelo libroModelo = new LibroModelo(); 
+	Libro libro = libroModelo.select(id); 
 	
-	%>
+
+
 	
-		<!-- FORMULARIO -->
+	
+	/*  //boton
+	 if (libro != null){
+		 String boton = request.getParameter("guardar");
+			 if(boton == null){ */
+				 %> 
+				 
+				 	<!-- FORMULARIO -->
 	<div class= container>
 	 <form class="form-horizontal" action="#" method="post">
 	    <div class="form-group">
+	    	<input type ="hidden"  value="<%=libro.getId()%>">
 	      <label class="control-label col-sm-2" for="titulo">Titulo:</label>
 	      <div class="col-sm-10">
-	        <input type="input" class="form-control" id="titulo" placeholder="Introduzca titulo" name="titulo">
+	        <input type="text" class="form-control" id="titulo" value="<%=libro.getTitulo() %>" name="titulo">
 	      </div>
 	    </div>
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="autor">Autor:</label>
 	      <div class="col-sm-10">          
-	        <input type="input" class="form-control" id="autor" placeholder="Introduzca autor" name="autor">
+	        <input type="text" class="form-control" id="autor" value="<%=libro.getAutor() %>" name="autor">
 	      </div>
 	    </div>
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
-	        <button type="submit" class="btn btn-default" id="guardar">Enviar</button>
+	        <button type="submit" class="btn btn-default" id="guardar">Guardar</button>
 	       
 	      </div>
 	    </div>
 	  </form>
-	</div>
+	</div>	
 	
 	<%
 	
-	LibroModelo libroModelo = new LibroModelo(); 
-	Libro libro = libroModelo.select(id); 
 	
-	//meter los datos al libro
-	 
-	libro.setId(id); 
 	
-	if( titulo == "" || autor == "" ){
-		libro.getTitulo();
-		libro.getAutor(); 
-		}else{
-			if (titulo != ""){
-			libro.setTitulo(titulo);
-			}
-			if(autor != "")
-			libro.setAutor(autor); 
-			out.print("Libro correctamente actualidado<br>"); 
-			out.print("Para acceder a la lista: <a href = listarlibros.jsp> Lista de Libros</a>"); 
-		}
-
+	//falta hacer lo de meter el if y el boton para los datos de los libros
 	
-	//editar los datos 
-	libroModelo.update(libro);
+	
+		//editar los datos 
+		libroModelo.update(libro);
+	
+			 
+	
+	
+	
 	
 	
 	%>
 	
+	<%	
+/* 	out.print("Libro correctamente actualidado<br>"); 
+	out.print("Para acceder a la lista: <a href = listarlibros.jsp> Lista de Libros</a>");  */
+	%>
 	
 
 </body>

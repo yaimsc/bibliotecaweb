@@ -16,7 +16,6 @@
 
 
 <%
-
 	//para pillar el titulo y el autro introducido
 	String titulo = request.getParameter("titulo"); 
 	String autor = request.getParameter("autor"); 
@@ -24,9 +23,8 @@
 		if(titulo == null || autor == null || titulo == "" || autor == ""){
 			if(titulo == "" || autor == ""){
 				out.print("<br><p>Error: Falta meter un parametro</p>"); 
-		}
+			}
 	
-
 %>
 
 <!-- NAVBAR -->

@@ -33,13 +33,16 @@ public class LibroModelo extends Conector {
 	}
 
 	public Libro select(int id) {
+		
+		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement("select * from libros where id = ?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
+		
 
 			if (rs.next()) {
-				Libro libro = new Libro();
+				Libro libro = new Libro(); 
 				libro.setId(rs.getInt("id"));
 				libro.setTitulo(rs.getString("titulo"));
 				libro.setAutor(rs.getString("autor"));
@@ -50,7 +53,8 @@ public class LibroModelo extends Conector {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		
+		return null; 
 	}
 	
 	public Libro selectPorTitulo(String titulo) {

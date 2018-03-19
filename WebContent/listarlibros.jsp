@@ -45,14 +45,17 @@ while(i.hasNext()){
 	Libro libro = i.next();
 	
 	out.print("<tbody><tr><td>" + libro.getId() + " </td>" + "<td>" + libro.getTitulo() + "</td><td> " + libro.getAutor() 
-	+ "</td><td>" + libro.getImagen() + "</td><td><a href = 'FichaLibros.jsp?id=" + libro.getId() + "'>Ver</a></td>"  + 
-	"</td><td><a href = 'eliminarLibros.jsp?id=" + libro.getId() + "'>Eliminar</a></td></td><td><a href = 'editarLibros.jsp?id=" + libro.getId() + "'>Editar</a></td></tr></tbody>"); 
+	+ "</td><td>" + libro.getImagen() + "</td>");
+	
+	out.print("<td><a href = 'FichaLibros.jsp?id=" + libro.getId() + "'>Ver</a></td>"); 
+	out.print("<td><a href = 'eliminarLibros.jsp?id=" + libro.getId() + "'>Eliminar</a></td>");
+	out.print("<td><a href = 'editarLibros.jsp?id=" + libro.getId() + "'>Editar</a></td></tr></tbody>"); 
 }
 
 %>
 
 </table>
 
-<a href = "añadirLibros.jsp">Añadir Libros</a>
+<a href = "anadirLibros.jsp">Añadir Libros</a>
 </body>
 </html>
