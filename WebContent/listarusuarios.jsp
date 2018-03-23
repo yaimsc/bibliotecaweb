@@ -23,6 +23,7 @@
 <title>Listar Usuarios</title>
 </head>
 <body>
+<jsp:include page="WEB-INF/navbar.jsp"></jsp:include>
 	<header><h1>Lista de Usuarios</h1></header>
 	<table class = "table"> 
 	<thead>

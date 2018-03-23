@@ -22,7 +22,8 @@
 		<title>Libros</title>
 </head>
 <body>
-	<header><h1>Lista de Libros</h1></header>
+	<jsp:include page="WEB-INF/navbar.jsp"></jsp:include>
+	<h1>Lista de Libros</h1>
 
 <table class = "table"> 
 	<thead>

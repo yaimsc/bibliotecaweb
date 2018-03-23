@@ -16,7 +16,7 @@
 <title>Listar Prestamos</title>
 </head>
 <body>
-
+<jsp:include page = "WEB-INF/navbar.jsp"></jsp:include>
 <h1>Lista de Prestamos</h1>
 <table class = "table"> 
 	<thead>
@@ -53,9 +53,13 @@ while(i.hasNext()){
 	out.print(prestamo.getFechaPrestamo()); 
 	out.print("</td><td>"); 
 	out.print(prestamo.getFechaLimite()); 
-	out.print("</td><td>"); 
-	out.print(prestamo.isEntregado());
-	out.print("</td></tr></tbody>"); 
+	out.print("</td>"); 
+	if(prestamo.isEntregado() == true){
+		out.print("<td class = 'entregado'> Disponible</td>"); 
+	}else{
+		out.print("<td class = 'noEntregado' > No Disponible </td>");
+	}
+	out.print("</tr></tbody>"); 
 	
 }
 

@@ -1,3 +1,4 @@
+
 <%@page import="modelo.Libro"%>
 <%@page import="modelo.LibroModelo"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -13,62 +14,20 @@
 <title>Actualizar Libros</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="index.html">Biblioteca</a>
-	    </div>
-	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="index.html">Home</a></li>
-	      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestor Libros<span class="caret"></span></a>
-	      	<ul class="dropdown-menu">
-	          <li><a href="listarlibros.jsp">Listar Libros</a></li>
-	          <li><a href="anadirLibros.jsp">Añadir Libros</a></li>
-	          <li><a href="#">Page 1-3</a></li>
-        	</ul>
-         </li>
-	     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestor Usuarios<span class="caret"></span></a>
-	     	<ul class="dropdown-menu">
-	          <li><a href="listarusuarios.jsp">Listar Usuarios</a></li>
-	          <li><a href="#">Page 1-2</a></li>
-	          <li><a href="#">Page 1-3</a></li>
-        	</ul>
-	      </li>
-	      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestor Prestamos<span class="caret"></span></a>
-	     	<ul class="dropdown-menu">
-	          <li><a href="listarprestamos.jsp">Listar Prestamos</a></li>
-	          <li><a href="#">Page 1-2</a></li>
-	          <li><a href="#">Page 1-3</a></li>
-        	</ul>
-	      </li>
-	    </ul>
-	    <ul class="nav navbar-nav navbar-right">
-     		<li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-      		<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>  Iniciar Sesion</a></li>
-    	</ul>
-	  </div>
-	</nav>
-	
+
+	<jsp:include page="WEB-INF/navbar.jsp"></jsp:include>	
 	<%
 	int id = Integer.parseInt(request.getParameter("id"));
 	LibroModelo libroModelo = new LibroModelo(); 
 	Libro libro = libroModelo.select(id); 
 	
-
-
-	
-	
-	/*  //boton
-	 if (libro != null){
-		 String boton = request.getParameter("guardar");
-			 if(boton == null){ */
 				 %> 
 				 
 				 	<!-- FORMULARIO -->
 	<div class= container>
 	 <form class="form-horizontal" action="#" method="post">
 	    <div class="form-group">
-	    	<input type ="hidden"  value="<%=libro.getId()%>">
+	    	<input type ="hidden"  value="<%=libro.getId()%>"> <!-- con esto pilla el valor y con getTutlo() nos deja el valor del libro -->
 	      <label class="control-label col-sm-2" for="titulo">Titulo:</label>
 	      <div class="col-sm-10">
 	        <input type="text" class="form-control" id="titulo" value="<%=libro.getTitulo() %>" name="titulo">
@@ -82,7 +41,7 @@
 	    </div>
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
-	        <button type="submit" class="btn btn-default" id="guardar">Guardar</button>
+	        <button type="submit" class="btn btn-default" id="guardar" name="guardar">Guardar</button>
 	       
 	      </div>
 	    </div>
@@ -91,25 +50,19 @@
 	
 	<%
 	
-	
-	
-	//falta hacer lo de meter el if y el boton para los datos de los libros
-	
-	
+	String guardar = request.getParameter("guardar");
+	if(guardar != null){
+		libro.setTitulo(request.getParameter("titulo"));
+		libro.setAutor(request.getParameter("autor")); 
+		
 		//editar los datos 
 		libroModelo.update(libro);
+
+		response.sendRedirect("listarlibros.jsp"); 
+		
+	}
 	
-			 
 	
-	
-	
-	
-	
-	%>
-	
-	<%	
-/* 	out.print("Libro correctamente actualidado<br>"); 
-	out.print("Para acceder a la lista: <a href = listarlibros.jsp> Lista de Libros</a>");  */
 	%>
 	
 

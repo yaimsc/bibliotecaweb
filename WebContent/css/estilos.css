@@ -48,3 +48,11 @@ aside{
 	margin-left: 1%;
 	margin-rigth: 5%; 
 }
+
+.table tbody tr > td.Entregado{
+  background-color: #dff0d8; /*override the rules of bootstrap y cambiar color solo a td */
+}
+
+.table tbody tr > td.noEntregado{
+  background-color: #ff9999;
+}

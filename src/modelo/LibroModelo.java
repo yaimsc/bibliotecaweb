@@ -10,6 +10,7 @@ public class LibroModelo extends Conector {
 
 	public ArrayList<Libro> selectAll() {
 
+		PrestamoModelo prestamoModelo = new PrestamoModelo(); 
 		ArrayList<Libro> libros = new ArrayList<Libro>();
 
 		try {
@@ -21,7 +22,8 @@ public class LibroModelo extends Conector {
 				libro.setTitulo(rs.getString("titulo"));
 				libro.setAutor(rs.getString("autor"));
 				libro.setImagen("images/"+ rs.getString("imagen"));
-
+				//libro.setPrestamos(prestamoModelo.prestamosDelLibro(libro));
+		
 				libros.add(libro);
 			}
 			return libros;

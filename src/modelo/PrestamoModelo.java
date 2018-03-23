@@ -39,11 +39,11 @@ public class PrestamoModelo extends Conector{
 			ResultSet rs = st.executeQuery("select * from prestamos");
 			while(rs.next()){
 				prestamo = new Prestamo();
-				prestamo.setId(rs.getInt("id"));
+				prestamo.setId(rs.getInt("id_prestamo"));
 				prestamo.setLibro(libroModelo.select(rs.getInt("id_libro"))); 
 				prestamo.setUsuario(usuarioModelo.select(rs.getInt("id_usuario")));
-				prestamo.setFechaPrestamo(rs.getDate("fecha_ini"));
-				prestamo.setFechaLimite(rs.getDate("fecha_fin"));
+				prestamo.setFechaPrestamo(rs.getDate("fecha_prestamo"));
+				prestamo.setFechaLimite(rs.getDate("fecha_limite"));
 				prestamo.setEntregado(rs.getBoolean("entregado"));
 				
 				prestamos.add(prestamo);
@@ -75,7 +75,7 @@ public class PrestamoModelo extends Conector{
 			
 			if(rs.next()){
 				Prestamo prestamo = new Prestamo();
-				prestamo.setId(rs.getInt("id"));
+				prestamo.setId(rs.getInt("id_prestamo"));
 				prestamo.setLibro(libroModelo.select(rs.getInt("id_libro"))); 
 				prestamo.setUsuario(usuarioModelo.select(rs.getInt("id_usuario")));
 				prestamo.setFechaPrestamo(rs.getDate("fecha_prestamo"));
@@ -113,7 +113,59 @@ public class PrestamoModelo extends Conector{
 		
 	}
 	
+	//NO FUNCIONA!!!!
+//	public ArrayList<Prestamo> prestamosDelLibro(Libro libro){
+//		ArrayList<Prestamo> prestamos = new ArrayList<Prestamo>();
+//		
+//		LibroModelo libroModelo = new LibroModelo();
+//		UsuarioModelo usuarioModelo = new UsuarioModelo(); 
+//		PreparedStatement pst; 
+//		
+//		
+//		
+//		try {
+//			pst = super.conexion.prepareStatement("select * from prestamos where id_libro = ?");
+//			pst.setInt(1, libro.getId());
+//			ResultSet rs = pst.executeQuery(); 
+//			
+//			if(rs.next()){
+//				Prestamo prestamo = new Prestamo(); 
+//				prestamo.setId(rs.getInt("id_prestamo"));
+//				prestamo.setLibro(libroModelo.select(rs.getInt("id_libro")));
+//				prestamo.setUsuario(usuarioModelo.select(rs.getInt("id_usuario")));
+//				prestamo.setFechaPrestamo(rs.getDate("fecha_prestamo"));
+//				prestamo.setFechaLimite(rs.getDate("fecha_limite"));
+//				prestamo.setEntregado(rs.getBoolean("entregado"));
+//				
+//				prestamos.add(prestamo);
+//			}
+//			
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return prestamos;
+//	}
 	
+	public boolean estaDisponible(Libro libro){
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("select * from prestamos where id_libro = ? and entregado = 0");
+			pst.setInt(1, libro.getId());	
+			ResultSet rs = pst.executeQuery(); 
+			
+			if(rs.next()){ //si hay una linea nos saca solo los no entregados por lo que false
+				return false;
+			}else{ //si no true
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false; 
+	}
 
 	
 	
