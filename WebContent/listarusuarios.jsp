@@ -49,7 +49,7 @@ while(i.hasNext()){
 	
 	out.print("<tbody><tr><td>" + usuario.getId() + " </td>" + "<td>" + usuario.getNombre() + "</td><td>" 
 	+ usuario.getApellido() + "</td><td>" + usuario.getEdad() 
-	+ "</td><td>"+ usuario.getDni() + "</td><td>" + usuario.getFechaNacimiento() + "</td></tr></tbody>"); 
+	+ "</td><td>"+ usuario.getDni() + "</td><td>" + usuario.getFecha_nacimiento() + "</td></tr></tbody>"); 
 	
 }
 

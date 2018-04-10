@@ -58,11 +58,10 @@ public class UsuarioVista {
 		System.out.println("Introduce la fecha de naciemento (dd/MM/yyyy)");
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
-		
-		
+
 		try {
 			fechaNacimiento = sdf.parse(scan.nextLine());
-			usuario.setFechaNacimiento(fechaNacimiento);
+			usuario.setFecha_nacimiento(fechaNacimiento);
 		} catch (ParseException e) {
 			System.out.println("Ha indroducido mal la fecha");
 			return scanUsuario(scan);
@@ -83,12 +82,12 @@ public class UsuarioVista {
 	}
 	
 	public void mostrarUsuario(Usuario usuario){
-		java.util.Date fecha_nacimiento = usuario.getFechaNacimiento();
+		java.util.Date fecha_nacimiento = usuario.getFecha_nacimiento();
 		String fecha = "";
 		if(fecha_nacimiento == null){
 			fecha = "fecha vacia";
 		}else{
-			fecha = new SimpleDateFormat("dd/MM/yyyy").format(usuario.getFechaNacimiento());
+			fecha = new SimpleDateFormat("dd/MM/yyyy").format(usuario.getFecha_nacimiento());
 		}
 		
 		System.out.println(usuario.getId()+ "\t - "+
@@ -98,18 +97,5 @@ public class UsuarioVista {
 				fecha + "\t - "+
 				usuario.getEdad());
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

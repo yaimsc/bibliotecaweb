@@ -23,7 +23,7 @@ public class UsuarioModelo extends Conector {
 				usuario.setEdad(rs.getInt("edad"));
 				usuario.setDni(rs.getString("dni"));
 				java.util.Date fecha_nacimiento = rs.getDate("fecha_nacimiento");
-				usuario.setFechaNacimiento(fecha_nacimiento);
+				usuario.setFecha_nacimiento(fecha_nacimiento);
 
 				usuarios.add(usuario);
 			}
@@ -51,7 +51,7 @@ public class UsuarioModelo extends Conector {
 				usuario.setEdad(rs.getInt("edad"));
 				usuario.setDni(rs.getString("dni"));
 				java.util.Date fecha_nacimiento = rs.getDate("fecha_nac");
-				usuario.setFechaNacimiento(fecha_nacimiento);
+				usuario.setFecha_nacimiento(fecha_nacimiento);
 
 				
 				usuarios.add(usuario);
@@ -78,7 +78,7 @@ public class UsuarioModelo extends Conector {
 				usuario.setApellido(rs.getString("apellido"));
 				usuario.setEdad(rs.getInt("edad"));
 				usuario.setDni(rs.getString("dni"));
-				usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+				usuario.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
 				return usuario;
 			}
 
@@ -114,7 +114,7 @@ public class UsuarioModelo extends Conector {
 			pst.setString(2, usuario.getApellido());
 			pst.setInt(3, usuario.getEdad());
 			pst.setInt(4, usuario.getId());
-			pst.setDate(5, new java.sql.Date(usuario.getFechaNacimiento().getTime()));
+			pst.setDate(5, new java.sql.Date(usuario.getFecha_nacimiento().getTime()));
 			pst.setString(6, usuario.getDni());
 
 			pst.executeUpdate();
@@ -132,7 +132,7 @@ public class UsuarioModelo extends Conector {
 			pst.setInt(3, usuario.getEdad());
 			pst.setString(4, usuario.getDni());
 
-			java.sql.Date sqlData = new java.sql.Date(usuario.getFechaNacimiento().getTime());
+			java.sql.Date sqlData = new java.sql.Date(usuario.getFecha_nacimiento().getTime());
 			pst.setDate(4, sqlData);
 
 			pst.execute();
@@ -157,7 +157,7 @@ public class UsuarioModelo extends Conector {
 				usuario.setApellido(rs.getString("apellido"));
 				usuario.setEdad(rs.getInt("edad"));
 				usuario.setDni(rs.getString("dni"));
-				usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+				usuario.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
 
 				usuarios.add(usuario);
 			}
@@ -183,7 +183,7 @@ public class UsuarioModelo extends Conector {
 				usuario.setApellido(rs.getString("apellido"));
 				usuario.setEdad(rs.getInt("edad"));
 				usuario.setDni(rs.getString("dni"));
-				usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+				usuario.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
 
 				usuarios.add(usuario);
 			}
@@ -210,7 +210,7 @@ public class UsuarioModelo extends Conector {
 				usuario.setApellido(rs.getString("apellido"));
 				usuario.setEdad(rs.getInt("edad"));
 				usuario.setDni(rs.getString("dni"));
-				usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+				usuario.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
 
 				usuarios.add(usuario);
 			}
@@ -239,7 +239,7 @@ public class UsuarioModelo extends Conector {
 				usuario.setApellido(rs.getString("apellido"));
 				usuario.setDni(rs.getString("dni"));
 				usuario.setEdad(rs.getInt("edad"));
-				usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+				usuario.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
 
 				return usuario;
 			}

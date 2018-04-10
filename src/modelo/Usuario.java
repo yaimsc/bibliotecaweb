@@ -11,6 +11,8 @@ public class Usuario {
 	private int edad;
 	private String dni;
 	private Date fecha_nacimiento;
+	private String rol;
+	private String password; 
 	
 	private ArrayList<Prestamo> prestamos;
 	
@@ -27,12 +29,7 @@ public class Usuario {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	public Date getFechaNacimiento() {
-		return fecha_nacimiento;
-	}
-	public void setFechaNacimiento(Date fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
-	}
+
 	//getters and setters
 	public int getId() {
 		return id;
@@ -58,6 +55,25 @@ public class Usuario {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	
 	
 }

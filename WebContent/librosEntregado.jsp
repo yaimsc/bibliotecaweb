@@ -43,17 +43,17 @@
 
 	
 	Iterator<Libro> i = libros.iterator(); 
-	Libro libro;
+	Libro libro; //recorrer los libros
 		while(i.hasNext()){
 			libro = i.next(); 
 			//libro.setPrestamos(prestamoModelo.prestamosDelLibro(libro));
 			out.print("<tr>");
-			out.print("<td>" + libro.getId() + "</td><td>" + libro.getTitulo() + "</td><td>" + libro.getAutor() + "</td>");
+			out.print("<td>" + libro.getId() + "</td><td>" + libro.getTitulo() + "</td><td>" + libro.getAutor() + "</td>"); //sacar por pantalla
 			
-		if(prestamoModelo.estaDisponible(libro)){
+		if(prestamoModelo.estaDisponible(libro)){ //mirar si esta entregado o no y sacarlo por pantalla
 			out.print("<td class = 'Entregado'> Disponible </td>");
 		}else{
-			out.print("<td class = 'noEntregado' color = 'red'>No Disponible</td>"); 
+			out.print("<td class = 'noEntregado'>No Disponible</td>"); 
 		}
 		
 		out.print("</tr>");

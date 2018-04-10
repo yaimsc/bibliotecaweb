@@ -150,7 +150,7 @@ public class PrestamoModelo extends Conector{
 	
 	public boolean estaDisponible(Libro libro){
 		try {
-			PreparedStatement pst = super.conexion.prepareStatement("select * from prestamos where id_libro = ? and entregado = 0");
+			PreparedStatement pst = super.conexion.prepareStatement("select * from prestamos where id_libro = ? and entregado = 0"); //entregado 0 = false
 			pst.setInt(1, libro.getId());	
 			ResultSet rs = pst.executeQuery(); 
 			
