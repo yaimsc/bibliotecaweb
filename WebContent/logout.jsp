@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-session.removeAttribute("iniciado");
+session.removeAttribute("usuario");
 out.print("logout realizado"); 
 %>
 </body>

@@ -1,3 +1,6 @@
+<%@page import="modelo.Usuario"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +8,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <%
+  Object objeto = session.getAttribute("usuario");
+  Usuario usuario = (Usuario) objeto; 
+  %>
 
 <meta charset="ISO-8859-1">
 <title>Biblioteca</title>
@@ -41,8 +49,9 @@
 	      </li>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
-     		<li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-      		<li><a href="loginform.jsp"><span class="glyphicon glyphicon-log-in"></span>  Iniciar Sesion</a></li>
+     		<li><a href="#"><span class="glyphicon glyphicon-user"></span><% out.print(" " + usuario.getNombre() + " " + usuario.getApellido()); %></a></li>
+     		<li><a href="logout.jsp"><span class="glyphicon glyphicon-log-out"></span>  Cerrar Sesion</a></li>
+      		
     	</ul>
 	  </div>
 	</nav>

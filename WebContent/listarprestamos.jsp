@@ -18,6 +18,15 @@
 <body>
 <jsp:include page = "WEB-INF/navbar.jsp"></jsp:include>
 <h1>Lista de Prestamos</h1>
+
+<%
+Object objeto = session.getAttribute("usuario");
+Usuario usuario = (Usuario) objeto; 
+
+if(usuario.getId() == 7){
+	
+
+%>
 <table class = "table"> 
 	<thead>
 		<tr>
@@ -63,7 +72,12 @@ while(i.hasNext()){
 	
 }
 
+}else{
 
+	
+	PrestamoModelo prestamoModelo = new PrestamoModelo();
+	ArrayList<Prestamo> prestamos = prestamoModelo.selectporUsuario(); 
+}
 %>
 
 </table>

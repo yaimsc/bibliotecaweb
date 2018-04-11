@@ -168,7 +168,23 @@ public class PrestamoModelo extends Conector{
 	}
 
 	
-	
+	public Prestamo selectporUsuario(Usuario usuario){
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("select * from prestamos where id_usuario = ?");
+			pst.setInt(1, usuario.getId());
+			ResultSet rs = pst.executeQuery(); 
+			
+			if(rs.next()){
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return null;
+		
+	}
 	
 	
 	

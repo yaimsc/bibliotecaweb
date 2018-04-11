@@ -156,7 +156,7 @@ body, html {
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action = "login.jsp" method = "get"> <!-- con contraseñas siempre post -->
+            <form class="form-signin" action = "login.jsp" method = "post"> <!-- con contraseñas siempre post -->
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="dni" id="dni" name="dni" class="form-control" placeholder="DNI" required autofocus>
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
@@ -172,11 +172,5 @@ body, html {
             </a>
 	</div>
 	
-<%
-
-
-
-
-%>
 </body>
 </html>
