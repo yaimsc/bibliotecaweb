@@ -1,3 +1,4 @@
+<%@page import="modelo.Usuario"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelo.Prestamo"%>
 <%@page import="modelo.PrestamoModelo"%>
@@ -25,7 +26,17 @@
 </head>
 <body>
 
-<jsp:include page="WEB-INF/navbar.jsp"></jsp:include>
+<%
+
+Object objeto = session.getAttribute("usuario"); 
+Usuario usuario = (Usuario) objeto; 
+
+if(usuario.esAdmin()){
+%> <jsp:include page="WEB-INF/navbarAdmin.jsp"></jsp:include> <%	
+}else{
+%> <jsp:include page="WEB-INF/navbarUser.jsp"></jsp:include> <%
+}
+%>
 
 <h1>Libros Disponibles</h1>
 

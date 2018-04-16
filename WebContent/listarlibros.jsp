@@ -1,4 +1,5 @@
 
+<%@page import="modelo.Usuario"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="modelo.Libro"%>
@@ -22,7 +23,17 @@
 		<title>Libros</title>
 </head>
 <body>
-	<jsp:include page="WEB-INF/navbar.jsp"></jsp:include>
+
+
+<%
+Object objeto = session.getAttribute("usuario");
+Usuario usuario = (Usuario) objeto; 
+
+
+if(usuario.esAdmin()){
+	
+%>
+	<jsp:include page="WEB-INF/navbarAdmin.jsp"></jsp:include>
 	<h1>Lista de Libros</h1>
 
 <table class = "table"> 
@@ -51,12 +62,48 @@ while(i.hasNext()){
 	out.print("<td><a href = 'FichaLibros.jsp?id=" + libro.getId() + "'>Ver</a></td>"); 
 	out.print("<td><a href = 'eliminarLibros.jsp?id=" + libro.getId() + "'>Eliminar</a></td>");
 	out.print("<td><a href = 'editarLibros.jsp?id=" + libro.getId() + "'>Editar</a></td></tr></tbody>"); 
-}
+	}
+%>
+</table>
 
+<a href = "anadirLibros.jsp">Añadir Libros</a>
+
+<%
+}else{
+%>
+	
+	<jsp:include page="WEB-INF/navbarUser.jsp"></jsp:include>
+	<h1>Lista de Libros</h1>
+
+<table class = "table"> 
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Titulo</th>
+			<th>Autor</th>
+			<th>Imagen</th>
+		</tr>
+	</thead>	
+	
+<%
+
+LibroModelo libroModelo = new LibroModelo(); 
+ArrayList<Libro> libros = libroModelo.selectAll(); 
+
+Iterator<Libro> i = libros.iterator();
+while(i.hasNext()){
+	Libro libro = i.next();
+	
+	out.print("<tbody><tr><td>" + libro.getId() + " </td>" + "<td>" + libro.getTitulo() + "</td><td> " + libro.getAutor() 
+	+ "</td><td>" + libro.getImagen() + "</td>");
+	
+	out.print("<td><a href = 'FichaLibros.jsp?id=" + libro.getId() + "'>Ver</a></td>"); 
+	
+	}
+}
 %>
 
 </table>
 
-<a href = "anadirLibros.jsp">Añadir Libros</a>
 </body>
 </html>

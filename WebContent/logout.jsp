@@ -9,7 +9,7 @@
 <body>
 <%
 session.removeAttribute("usuario");
-out.print("logout realizado"); 
+response.sendRedirect("login.jsp"); 
 %>
 </body>
 </html>

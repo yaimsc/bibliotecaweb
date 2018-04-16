@@ -1,3 +1,4 @@
+<%@page import="modelo.Usuario"%>
 <%@page import= "modelo.Libro" %>
 <%@page import= "modelo.LibroModelo" %>
 
@@ -16,6 +17,20 @@
 </head>
 <body>
 
+<%
+
+Object objeto = session.getAttribute("usuario");
+Usuario usuario = (Usuario) objeto;  
+
+
+if(usuario.getRol().equals("admin")){
+%> <jsp:include page= "WEB-INF/navbarAdmin.jsp"></jsp:include>
+<%
+}else{
+%> <jsp:include page="WEB-INF/navbarUser.jsp"></jsp:include> 
+<%
+}
+%>
 <header><h1>Información del Libro</h1></header>
 
 <section> 

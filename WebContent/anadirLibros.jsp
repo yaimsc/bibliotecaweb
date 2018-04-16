@@ -28,7 +28,7 @@
 %>
 
 <!-- NAVBAR -->
-<jsp:include page="WEB-INF/navbar.jsp"></jsp:include>
+<jsp:include page="WEB-INF/navbarAdmin.jsp"></jsp:include>
 	
 	
 	<h1>Añadir Libros</h1>

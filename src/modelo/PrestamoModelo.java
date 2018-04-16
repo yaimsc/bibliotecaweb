@@ -168,21 +168,34 @@ public class PrestamoModelo extends Conector{
 	}
 
 	
-	public Prestamo selectporUsuario(Usuario usuario){
+	public ArrayList<Prestamo> selectporUsuario(int id_usuario){
+		
+		LibroModelo libroModelo = new LibroModelo(); 
+		UsuarioModelo usuarioModelo = new UsuarioModelo(); 
+		
+		ArrayList<Prestamo> prestamos = new ArrayList<Prestamo>();
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement("select * from prestamos where id_usuario = ?");
-			pst.setInt(1, usuario.getId());
+			pst.setInt(1, id_usuario);
 			ResultSet rs = pst.executeQuery(); 
 			
-			if(rs.next()){
+			while(rs.next()){
+				Prestamo prestamo = new Prestamo();
+				prestamo.setId(rs.getInt("id_prestamo"));
+				prestamo.setLibro(libroModelo.select(rs.getInt("id_libro")));
+				prestamo.setUsuario(usuarioModelo.select(rs.getInt("id_usuario")));
+				prestamo.setFechaPrestamo(rs.getDate("fecha_prestamo"));
+				prestamo.setFechaLimite(rs.getDate("fecha_limite"));
+				prestamo.setEntregado(rs.getBoolean("entregado")); 
 				
+				prestamos.add(prestamo); 
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		return null;
+		return prestamos;
 		
 	}
 	

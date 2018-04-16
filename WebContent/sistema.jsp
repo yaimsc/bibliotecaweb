@@ -10,13 +10,19 @@
 
 Object objeto = session.getAttribute("usuario");
 Usuario usuario = (Usuario) objeto; 
+
+//si usuario es null vuelva al login
 if(usuario == null){
 	response.sendRedirect("loginform.jsp"); 
-}else if(usuario != null && usuario.getId() == 7){
+	
+	//si usuario no es nul y es admin
+	}else if(usuario != null && usuario.getId() == 7){
 		response.sendRedirect("indexAdmin.jsp"); 
-}else{
-	response.sendRedirect("indexUser.jsp"); 
-}
+		
+		//si es solo usuario
+	}else{
+		response.sendRedirect("indexUser.jsp"); 
+	}
 
 
 /* if(objeto != null & objeto.getRol() == "admin"){

@@ -14,6 +14,10 @@ public class Usuario {
 	private String rol;
 	private String password; 
 	
+	public static final String ADMIN = "admin"; 
+	public static final String USER = "usuario"; 
+	
+	
 	private ArrayList<Prestamo> prestamos;
 	
 	//metodos
@@ -74,6 +78,20 @@ public class Usuario {
 		this.password = password;
 	}
 	
+	public boolean esAdmin(){
+		if (this.rol.equals(ADMIN)){
+			return true; 
+		}else{
+			return false; 
+		}
+	}
 	
+	public boolean esUsuario(){
+		if (this.rol.equals(USER)){
+			return true; 
+		}else{
+			return false; 
+		}
+	}
 	
 }

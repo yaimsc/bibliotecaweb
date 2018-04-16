@@ -12,12 +12,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="css/estilos.css">
   	
 <title>Listar Prestamos</title>
 </head>
 <body>
-<jsp:include page = "WEB-INF/navbar.jsp"></jsp:include>
-<h1>Lista de Prestamos</h1>
+
 
 <%
 Object objeto = session.getAttribute("usuario");
@@ -27,6 +27,10 @@ if(usuario.getId() == 7){
 	
 
 %>
+
+<jsp:include page = "WEB-INF/navbarAdmin.jsp"></jsp:include>
+<h1>Lista de Prestamos</h1>
+
 <table class = "table"> 
 	<thead>
 		<tr>
@@ -64,7 +68,7 @@ while(i.hasNext()){
 	out.print(prestamo.getFechaLimite()); 
 	out.print("</td>"); 
 	if(prestamo.isEntregado() == true){
-		out.print("<td class = 'entregado'> Disponible</td>"); 
+		out.print("<td class = 'Entregado'> Disponible</td>"); 
 	}else{
 		out.print("<td class = 'noEntregado' > No Disponible </td>");
 	}
@@ -73,11 +77,50 @@ while(i.hasNext()){
 }
 
 }else{
-
 	
-	PrestamoModelo prestamoModelo = new PrestamoModelo();
-	ArrayList<Prestamo> prestamos = prestamoModelo.selectporUsuario(); 
+	%>
+	
+	<jsp:include page = "WEB-INF/navbarUser.jsp"></jsp:include>
+	<h1>Lista de Prestamos</h1>
+	
+	<table class = "table"> 
+	<thead>
+		<tr>
+			<th>Titulo Libro</th>
+			<th>Autor Libro</th>
+			<th>DNI</th>
+			<th>fecha_inicio</th>
+			<th>fecha_fin</th>
+		</tr>
+	</thead>
+	
+	<%
+	
+	if(usuario.esUsuario()){
+		PrestamoModelo prestamoModelo = new PrestamoModelo();
+		ArrayList<Prestamo>prestamos = prestamoModelo.selectporUsuario(usuario.getId()); 
+		
+		Iterator<Prestamo> i = prestamos.iterator(); 
+		
+		while(i.hasNext()){
+			Prestamo prestamo = i.next(); 
+				out.print("<tbody><tr><td>"); 
+				out.print(prestamo.getLibro().getTitulo()); 
+				out.print("</td><td>");
+				out.print(prestamo.getLibro().getAutor()); 
+				out.print("</td><td>");
+				out.print(prestamo.getUsuario().getDni()); 
+				out.print("</td><td>"); 
+				out.print(prestamo.getFechaPrestamo()); 
+				out.print("</td><td>"); 
+				out.print(prestamo.getFechaLimite()); 
+				out.print("</td>"); 
+		}
+	
+
+	}
 }
+
 %>
 
 </table>
