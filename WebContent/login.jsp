@@ -8,11 +8,16 @@
 String dni = request.getParameter("dni"); 
 String password = request.getParameter("password"); 
 
-UsuarioModelo usuarioModelo = new UsuarioModelo(); 
+
 if(dni != null && password != null){ //si dni no es null
+	UsuarioModelo usuarioModelo = new UsuarioModelo(); 
 	Usuario usuario = usuarioModelo.selectporDniPassword(dni, password); //selecciona el dni y el password y mira si coincide con la base de datos
-	session.setAttribute("usuario", usuario);
+	if(usuario != null){
+		session.setAttribute("usuario", usuario);
 		response.sendRedirect("sistema.jsp"); //le redirecciona al sistema
+	}else{
+		response.sendRedirect("loginform.jsp"); 
+	}
 
 }else{ //si no es un usuario o admin
 	response.sendRedirect("loginform.jsp"); //le redirecciona de nuevo al login

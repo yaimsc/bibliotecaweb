@@ -16,7 +16,7 @@ if(usuario == null){
 	response.sendRedirect("loginform.jsp"); 
 	
 	//si usuario no es nul y es admin
-	}else if(usuario != null && usuario.getId() == 7){
+	}else if(usuario != null && usuario.getRol().equals("admin")){
 		response.sendRedirect("indexAdmin.jsp"); 
 		
 		//si es solo usuario
