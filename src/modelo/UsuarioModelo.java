@@ -125,15 +125,16 @@ public class UsuarioModelo extends Conector {
 
 	public void insert(Usuario usuario) {
 		try {
-			PreparedStatement pst = super.conexion.prepareStatement(
-					"INSERT INTO usuarios (nombre, apellido, edad, dni, fecha_nacimiento) values(?,?,?,?,?)");
+			PreparedStatement pst = super.conexion.prepareStatement("INSERT INTO usuarios (nombre, apellido, edad, dni, rol, password) values (?,?,?,?,?,?);");
 			pst.setString(1, usuario.getNombre());
 			pst.setString(2, usuario.getApellido());
 			pst.setInt(3, usuario.getEdad());
 			pst.setString(4, usuario.getDni());
+			pst.setString(5,  usuario.getRol());
+			pst.setString(6, usuario.getPassword());
 
-			java.sql.Date sqlData = new java.sql.Date(usuario.getFecha_nacimiento().getTime());
-			pst.setDate(4, sqlData);
+//			java.sql.Date sqlData = new java.sql.Date(usuario.getFecha_nacimiento().getTime());
+//			pst.setDate(4, sqlData);
 
 			pst.execute();
 

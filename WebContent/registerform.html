@@ -7,7 +7,7 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		<link rel="stylesheet" type="text/css" href="css/estilos.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Iniciar Sesión</title>
+<title>Registro</title>
 <style>
 
 body, html {
@@ -159,13 +159,13 @@ body, html {
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action = "./RegisertServlet" method = "post"> <!-- con contraseñas siempre post -->
+            <form class="form-signin" action = "./RegisterServlet" method = "post"> <!-- con contraseñas siempre post -->
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" id="nombre" class="form-control" placeholder="nombre">
-                <input type="text" id="apellido" class="form-control" placeholder="apellido">
-                <input type="number" id="edad" class="form-control" placeholder="edad"><br>
-                <input type="text" id="dni" name="dni" class="form-control" placeholder="DNI">
-                <input type="date" id="fecha_nacimiento" class="form-control" value="date" ><br>
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="nombre">
+                <input type="text" id="apellido" name="apellido"class="form-control" placeholder="apellido">
+                <input type="number" id="edad" name="edad" class="form-control" placeholder="edad"><br>
+                <input type="text" id="dni" name="dni" name="dni" class="form-control" placeholder="DNI">
+                <input type="text" id="rol" name="rol" class="form-control" value="usuario">
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                 <input type="password" id="password" name="password" class="form-control" placeholder="Confirma Password" required>
                 <div id="remember" class="checkbox">
